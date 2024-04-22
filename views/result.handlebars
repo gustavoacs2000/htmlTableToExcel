@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table from Array of Objects</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<table id="myTable">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>City</th>
+  </tr>
+</table>
+
+<script>
+  // Array of objects
+  const data = [
+    { name: "John", age: 30, city: "New York" },
+    { name: "Alice", age: 25, city: "London" },
+    { name: "Bob", age: 35, city: "Paris" }
+  ];
+
+  // Function to build the table
+  function buildTable(data) {
+    const table = document.getElementById("myTable");
+    for (let i = 0; i < data.length; i++) {
+      const row = table.insertRow();
+      for (let key in data[i]) {
+        const cell = row.insertCell();
+        cell.innerHTML = data[i][key];
+      }
+    }
+  }
+
+  // Call the function with the data
+  buildTable(data);
+</script>
+
+</body>
+</html>
